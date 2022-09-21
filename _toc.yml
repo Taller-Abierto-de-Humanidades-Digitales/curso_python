@@ -7,3 +7,13 @@ parts:
   - caption: Empecemos
     chapters:
     - file: caps/0-inicio
+    - file: caps/1-colab
+  - caption: Aspectos básicos de Python
+    chapters:
+    - file: caps/2-variables
+    - file: caps/3-listas
+    - file: caps/4-diccionarios
+    - file: caps/5-actividadC1
+  - caption: Bibiografía
+    chapters:
+    - file: references

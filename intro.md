@@ -13,57 +13,32 @@ kernelspec:
   name: python3
 ---
 
-# Un curso rapidísimo de Python
+# Te damos la bienvenida a este microcurso de Python
 
-Este es un curso rapidísimo de Python, diseñado para empezar a familiarizarte con el mundo de la programación. Vamos a tratar de comprender algunos conceptos básicos de la programación, y a escribir nuestro primer programa.
+En este curso, haremos una introducción a los aspectos claves para empezar a programar con el lenguaje Python.
 
-## ¿Qué es Python?
+## Algunas instrucciones
 
-Python es un lenguaje de programación de alto nivel, es decir, que traduce nuestras instrucciones a la computadora para que pueda ejecutar las acciones que le pedimos. Un lenguaje de bajo nivel es aquel que está más cerca de la máquina, y por lo tanto, es más difícil de aprender.
+En términos de requerimientos prácticos solamente necesitas contar con una cuenta de Google (para crear tu cuaderno de Google Colab) y una cuenta de [GitHub](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) (para compartir tu actividad en los "foros").
 
-Python tiene otra ventaja y es que es un lenguaje interpretado, lo que quiere decir que nuestros programas no necesitan compilarse para ser ejecutados. Esto hace que sea muchísimo más sencillo de aprender que otros lenguajes de programación.
+Para comprobar tus habilidades, será muy relevante que puedas compartir en este espacio tus actividades, así como tus dudas y preguntas. Si tienes preguntas de cualquier tipo, deja una entrada en los [issues](https://github.com/Taller-Abierto-de-Humanidades-Digitales/curso_python/issues/new?title=Duda%20sobre%20el%20curso&body=Escribe%20aquí%20tu%20comentario.) del cuaderno.
 
-Finalmente, y esto es algo muy atractivo para quienes no nos dedicamos a la ciencia de la computación, es un lenguaje cuya sintaxis es muy sencilla y fácil de aprender. De hecho, muchas de las instrucciones son sumamente intuitivas. Por eso se dice que el lenguaje de Python es expresivo, porque con una sola instrucción podemos lograr mucho. Solamente para dar un ejemplo, en un lenguaje como C, para imprimir un mensaje en pantalla, tendríamos que escribir:
+## Sobre las actividades
 
-```c
-#include <stdio.h>
-int main() {
-   printf("¡Hola mundo!");
-   return 0;
-}
+Las actividades prácticas en este caso son muy sencillas. Solamente tienen el interés de que puedas prestar atención a detalles como la sintaxis, la asignación de valores, entre otros. Para ello, te incluiremos un cuaderno de Google Colab que podrás abrir desde tu cuenta, modificar y comprobar que el código está bien escrito.
+
+Para realizar las actividades, solamente necesitas editar la celda que requiere el ejercicio, ejecutarla y comprobar que esté correctamente con al ejecutar la siguiente celda. Si todo está bien, la celda te dará un mensaje de "¡Bien hecho!", si no, te dará un mensaje de error que te ayudará a corregir tu código.
+
+La siguiente captura de pantalla muestra un ejemplo de cómo se realiza una actividad:
+
+```{figure} _static/imgs/intro/ejemplo_actividad.gif
+---
+height: 400px
+name: actividad
+---
 ```
 
-Esto sin contar que el programa tiene que se compilado para que se pueda ejecutar. En Python, la misma tarea se puede lograr con una sola línea de código:
-
-```{code-cell}
-print("Hola mundo")
-```
-
-El resultado que ves arriba es resultado de ejecutar el código anterior. Por esa razón, Python es un lenguaje con tanta popularidad, porque es muy fácil de aprender y de usar.
-
-## ¿Qué es un programa?
-
-Un programa es una secuencia de instrucciones que siguen un orden lógico para lograr un objetivo. Por ejemplo, si yo quiero que mi computadora "salude" a una persona por su nombre y apellido, puedo escribir un programa que haga eso. En Python, el programa se vería así:
-
-```{code-cell}
-nombre = "Juan"
-apellido = "Pérez"
-print("Hola", nombre, apellido)
-```
-
-En este caso, el programa tiene tres instrucciones:
-
-1. Asignar el valor "Juan" a la variable `nombre`.
-2. Asignar el valor "Pérez" a la variable `apellido`.
-3. Imprimir el mensaje "Hola" seguido del valor de las variables `nombre` y `apellido`.
-
-Vamos a explorar más sobre las variables un poco más adelante. Por lo pronto, es suficiente con que tengas en cuenta que la computadora no entiende valores complejos, y en las humanidades (paradójicamente) vivimos en un mundo de complejidad. Por eso, necesitamos que la computadora entienda los conceptos que nosotros queremos analizar.
-
-Programar nos sirve para automatizar tareas que realizamos de manera repetitiva y a procesar grandes cantidades de información de manera muy rápida. En las ciencias, Python se ha convertido en un lenguaje de programación con mucha popularidad, y es el más usado en el mundo de la ciencia de datos.
-
-
-
-+++
+## Estructura del curso
 
 ```{tableofcontents}
 ```
