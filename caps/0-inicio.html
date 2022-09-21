@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Un curso rapidísimo de Python &#8212; Curso rápido de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Crear un cuaderno para prácticar con código" href="1-colab.html" />
+    <link rel="prev" title="Te damos la bienvenida a este microcurso de Python" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Curso rápido de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Te damos la bienvenida a este microcurso de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Empecemos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Un curso rapidísimo de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-colab.html">
+   Crear un cuaderno para prácticar con código
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Aspectos básicos de Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-variables.html">
+   Sintaxis, variables y tipos de datos básicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-listas.html">
+   Listas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-diccionarios.html">
+   Diccionarios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-actividadC1.html">
+   Actividad: aspectos básicos de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bibiografía
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/caps/0-inicio.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcaps/0-inicio.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/caps/0-inicio.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/caps/0-inicio.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-python">
+   ¿Qué es Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-un-programa">
+   ¿Qué es un programa?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entonces-que-es-codificar">
+   Entonces ¿qué es codificar?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#y-en-donde-entran-los-algoritmos">
+   Y ¿en dónde entran los algoritmos?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#en-sintesis">
+   En síntesis
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Un curso rapidísimo de Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-python">
+   ¿Qué es Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-un-programa">
+   ¿Qué es un programa?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entonces-que-es-codificar">
+   Entonces ¿qué es codificar?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#y-en-donde-entran-los-algoritmos">
+   Y ¿en dónde entran los algoritmos?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#en-sintesis">
+   En síntesis
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="un-curso-rapidisimo-de-python">
+<h1>Un curso rapidísimo de Python<a class="headerlink" href="#un-curso-rapidisimo-de-python" title="Permalink to this headline">#</a></h1>
+<p>Este es un curso rapidísimo de Python, diseñado para empezar a familiarizarte con el mundo de la programación. Vamos a tratar de comprender algunos conceptos básicos de la programación, y a escribir nuestro primer programa.</p>
+<section id="que-es-python">
+<h2>¿Qué es Python?<a class="headerlink" href="#que-es-python" title="Permalink to this headline">#</a></h2>
+<p>Python es un <a class="reference external" href="https://sites.google.com/site/teoriadelenguajesycompiladores/aplicaciones-de-la-tecnologia-de-compiladores/implementacion-de-lenguajes-de-programacion-de-alto-nivel">lenguaje de programación de alto nivel</a>, es decir, que traduce nuestras instrucciones a la computadora para que pueda ejecutar las acciones que le pedimos.</p>
+<p>Python tiene otra ventaja y es que es un lenguaje interpretado, lo que quiere decir que nuestros programas no necesitan compilarse para ser ejecutados. Esto hace que sea muchísimo más sencillo de aprender que otros lenguajes de programación.</p>
+<p>Finalmente, y esto es algo muy atractivo para quienes no nos dedicamos a la ciencia de la computación, es un lenguaje cuya sintaxis es muy sencilla y fácil de aprender. De hecho, muchas de las instrucciones son sumamente intuitivas. Por eso se dice que el lenguaje de Python es expresivo, porque con una sola instrucción podemos lograr mucho. Solamente para dar un ejemplo, en un lenguaje como C, para imprimir un mensaje en pantalla, tendríamos que escribir:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;¡Hola mundo!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Esto sin contar que el programa tiene que se compilado para que se pueda ejecutar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">call</span>
+<span class="n">call</span><span class="p">([</span><span class="s2">&quot;../holamundo.h&quot;</span><span class="p">])</span> <span class="c1"># &lt;- Este es el programa de arriba compilado en C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>¡Hola Mundo!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>En Python, la misma tarea se puede lograr con una sola línea de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola mundo
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado que ves arriba es resultado de ejecutar el código anterior. Por esa razón, Python es un lenguaje con tanta popularidad, porque es muy fácil de aprender y de usar.</p>
+</section>
+<section id="que-es-un-programa">
+<h2>¿Qué es un programa?<a class="headerlink" href="#que-es-un-programa" title="Permalink to this headline">#</a></h2>
+<p>Un programa es una secuencia de instrucciones que siguen un orden lógico para lograr un objetivo. Por ejemplo, si yo quiero que mi computadora “salude” a una persona por su nombre y apellido, puedo escribir un programa que haga eso. En Python, el programa se vería así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Francisco&quot;</span>
+<span class="n">apellido</span> <span class="o">=</span> <span class="s2">&quot;Azimov&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola Francisco Azimov
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, el programa tiene tres instrucciones:</p>
+<ol class="simple">
+<li><p>Asignar el valor “Juan” a la variable <code class="docutils literal notranslate"><span class="pre">nombre</span></code>.</p></li>
+<li><p>Asignar el valor “Pérez” a la variable <code class="docutils literal notranslate"><span class="pre">apellido</span></code>.</p></li>
+<li><p>Imprimir el mensaje “Hola” seguido del valor de las variables <code class="docutils literal notranslate"><span class="pre">nombre</span></code> y <code class="docutils literal notranslate"><span class="pre">apellido</span></code>.</p></li>
+</ol>
+<p>Vamos a explorar más sobre las variables un poco más adelante. Por lo pronto, es suficiente con que tengas en cuenta que la computadora no entiende valores complejos, y en las humanidades (paradójicamente) vivimos en un mundo de complejidad. Por eso, necesitamos que la computadora entienda los conceptos que nosotros queremos analizar y esos valores se asignan a variables.</p>
+<p>Programar nos sirve para automatizar tareas que realizamos de manera repetitiva y a procesar grandes cantidades de información de manera muy rápida. En este microcurso, vamos a realizar operaciones muy acotadas, de tal manera que puedas ver y comprender cada paso, pero en la vida real, los programas son mucho más complejos.</p>
+</section>
+<section id="entonces-que-es-codificar">
+<h2>Entonces ¿qué es codificar?<a class="headerlink" href="#entonces-que-es-codificar" title="Permalink to this headline">#</a></h2>
+<p>Codificar consiste en escribir un programa con un lenguaje de programación. Los términos programación y codificación suelen usarse de manera intercambiable, pero programar es un proceso mucho más amplio. Programar consiste en escribir un programa, pero también en probarlo, depurarlo, documentarlo, etc. En este curso, vamos a aprender a codificar, pero no vamos a entrar en detalles sobre el resto de los pasos.</p>
+</section>
+<section id="y-en-donde-entran-los-algoritmos">
+<h2>Y ¿en dónde entran los algoritmos?<a class="headerlink" href="#y-en-donde-entran-los-algoritmos" title="Permalink to this headline">#</a></h2>
+<p>Los algoritmos son una serie de pasos que se siguen para resolver un problema. Por ejemplo, si quiero saber cuánto es 2 + 2, puedo escribir un algoritmo que me diga el resultado. En este caso, el algoritmo sería:</p>
+<ol class="simple">
+<li><p>Tomar el número 2.</p></li>
+<li><p>Sumarle el número 2.</p></li>
+<li><p>Imprimir el resultado.</p></li>
+</ol>
+<p>En Python, el algoritmo se vería así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fácil, ¿no? Pero generalmente no nos encontramos con problemas que ya han sido resueltos de manera tan sencilla. Por ejemplo, si tenemos la frase “Más vale un pájaro en la mano que dos volando”, ¿cómo podemos saber cuántas palabras tiene? Podemos escribir un algoritmo que nos ayude a resolver este problema. En este caso, el algoritmo sería:</p>
+<ol class="simple">
+<li><p>Contar el número de espacios en la frase.</p></li>
+<li><p>Sumarle 1 al resultado anterior.</p></li>
+</ol>
+<p>En Python, el algoritmo se vería así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Más vale un pájaro en la mano que dos volando&quot;</span>
+<span class="n">espacios</span> <span class="o">=</span> <span class="n">frase</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">palabras</span> <span class="o">=</span> <span class="n">espacios</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">palabras</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como habrás notado, este algoritmo parte de la respuesta a una pregunta ¿qué es una palabra? La respuesta que tomamos es que una palabra es una secuencia de caracteres separada por espacios. En este sentido, si se identifica el valor común (espacios) y se cuenta cuántas veces aparece, se puede saber cuántas palabras hay en la frase. En este caso, el resultado es 9. También sabemos que toda frase tiene un espacio menos que palabras (porque no termina en espacio), por eso se suma 1 al resultado.</p>
+<p>Obviamente este es un algoritmo muy simple, y ya habrás deducido otra gran cantidad de posibilidades de error. Por ejemplo, ¿qué sucede si la frase termina en un espacio? ¿Cómo podemos lidiar con signos de puntuación? ¿Podemos considerar como palabras a las conjunciones? Involucrar estas preguntas en el algoritmo es lo que va construyendo un programa y lo hace más sofisticado. Por esta razón, es relevante entender que un algoritmo es un conjunto de instrucciones simples que, en conjunto, pueden resolver una cantidad casi infinita de problemas.</p>
+</section>
+<section id="en-sintesis">
+<h2>En síntesis<a class="headerlink" href="#en-sintesis" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>El algoritmo es una serie de pasos que se siguen para resolver un problema.</p></li>
+<li><p>El programa es una secuencia de instrucciones que siguen un orden lógico para lograr un objetivo.</p></li>
+<li><p>La codificación es escribir un programa con un lenguaje de programación.</p></li>
+</ul>
+<p>Ahora que tenemos los primeros conceptos claros, pongámonos manos a la obra.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./caps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Te damos la bienvenida a este microcurso de Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="1-colab.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crear un cuaderno para prácticar con código</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jairo Antonio Melo Flórez<br/>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

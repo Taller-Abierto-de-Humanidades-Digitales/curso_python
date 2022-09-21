@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Diccionarios &#8212; Curso rápido de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Actividad: aspectos básicos de Python" href="5-actividadC1.html" />
+    <link rel="prev" title="Listas" href="3-listas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Curso rápido de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Te damos la bienvenida a este microcurso de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Empecemos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-inicio.html">
+   Un curso rapidísimo de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-colab.html">
+   Crear un cuaderno para prácticar con código
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Aspectos básicos de Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-variables.html">
+   Sintaxis, variables y tipos de datos básicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-listas.html">
+   Listas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Diccionarios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-actividadC1.html">
+   Actividad: aspectos básicos de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bibiografía
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/caps/4-diccionarios.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcaps/4-diccionarios.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/caps/4-diccionarios.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/caps/4-diccionarios.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creando-diccionarios">
+   Creando diccionarios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-con-diccionarios">
+   Operaciones con diccionarios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accediendo-a-los-elementos-de-un-diccionario">
+     Accediendo a los elementos de un diccionario
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agregando-elementos-a-un-diccionario">
+     Agregando elementos a un diccionario
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eliminando-elementos-de-un-diccionario">
+     Eliminando elementos de un diccionario
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modificar-los-valores-de-un-diccionario">
+     Modificar los valores de un diccionario
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sintesis">
+   Síntesis
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Diccionarios</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creando-diccionarios">
+   Creando diccionarios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-con-diccionarios">
+   Operaciones con diccionarios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accediendo-a-los-elementos-de-un-diccionario">
+     Accediendo a los elementos de un diccionario
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agregando-elementos-a-un-diccionario">
+     Agregando elementos a un diccionario
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eliminando-elementos-de-un-diccionario">
+     Eliminando elementos de un diccionario
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modificar-los-valores-de-un-diccionario">
+     Modificar los valores de un diccionario
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sintesis">
+   Síntesis
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="diccionarios">
+<h1>Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this headline">#</a></h1>
+<p>Los diccionarios son estructuras de datos que permiten asociar información a través de claves y valores. De cierta manera, un diccionario puede ir desde algo muy simple hasta prácticamente representar una base de datos. En este capítulo veremos cómo crear diccionarios, cómo acceder a sus elementos y cómo modificarlos.</p>
+<section id="creando-diccionarios">
+<h2>Creando diccionarios<a class="headerlink" href="#creando-diccionarios" title="Permalink to this headline">#</a></h2>
+<p>Los diccionarios se definen con llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code> y los elementos se separan con comas <code class="docutils literal notranslate"><span class="pre">,</span></code>. Por ejemplo, un diccionario con los protagonistas de la serie de televisión “Friends” se puede definir como:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Rachel&quot;</span><span class="p">:</span> <span class="s2">&quot;Jennifer Aniston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Monica&quot;</span><span class="p">:</span> <span class="s2">&quot;Courteney Cox&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Phoebe&quot;</span><span class="p">:</span> <span class="s2">&quot;Lisa Kudrow&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Joey&quot;</span><span class="p">:</span> <span class="s2">&quot;Matt LeBlanc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Chandler&quot;</span><span class="p">:</span> <span class="s2">&quot;Matthew Perry&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ross&quot;</span><span class="p">:</span> <span class="s2">&quot;David Schwimmer&quot;</span>
+<span class="p">}</span>
+
+<span class="n">protagonistas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Rachel&#39;: &#39;Jennifer Aniston&#39;,
+ &#39;Monica&#39;: &#39;Courteney Cox&#39;,
+ &#39;Phoebe&#39;: &#39;Lisa Kudrow&#39;,
+ &#39;Joey&#39;: &#39;Matt LeBlanc&#39;,
+ &#39;Chandler&#39;: &#39;Matthew Perry&#39;,
+ &#39;Ross&#39;: &#39;David Schwimmer&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>De esa manera, tenemos un listado de los protagonistas y a cada uno de ellos le hemos asignado un valor. En este caso, el valor es el nombre del actor o actriz que lo interpretó.</p>
+</section>
+<section id="operaciones-con-diccionarios">
+<h2>Operaciones con diccionarios<a class="headerlink" href="#operaciones-con-diccionarios" title="Permalink to this headline">#</a></h2>
+<p>Eric Matthes explica que un diccionario es “una colección de <em>pares de valores clave</em>” donde “cada <em>clave</em> está conextada a un valor, y se puede usar una clave para acceder a un valor asociado con dicha clave” <span id="id1">[<a class="reference internal" href="../references.html#id3" title="Eric Matthes. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, San Francisco, 2016. ISBN 978-1-59327-603-4.">Matthes, 2016</a>]</span>. El valor de una clave puede ser cualquier tipo de dato, incluso otro diccionario.</p>
+<p>Por ejemplo, podemos hacer un diccionario más complejo para que cada protagonista tenga un diccionario con sus datos personales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Rachel&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Jennifer Aniston&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;año_nacimiento&quot;</span><span class="p">:</span> <span class="mi">1969</span><span class="p">,</span>
+        <span class="s2">&quot;nacionalidad&quot;</span><span class="p">:</span> <span class="s2">&quot;Estadounidense&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;género&quot;</span><span class="p">:</span> <span class="s2">&quot;Femenino&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Monica&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Courteney Cox&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;año_nacimiento&quot;</span><span class="p">:</span> <span class="mi">1964</span><span class="p">,</span>
+        <span class="s2">&quot;nacionalidad&quot;</span><span class="p">:</span> <span class="s2">&quot;Estadounidense&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;género&quot;</span><span class="p">:</span> <span class="s2">&quot;Femenino&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Phoebe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Lisa Kudrow&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;año_nacimiento&quot;</span><span class="p">:</span> <span class="mi">1963</span><span class="p">,</span>
+        <span class="s2">&quot;nacionalidad&quot;</span><span class="p">:</span> <span class="s2">&quot;Estadounidense&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;género&quot;</span><span class="p">:</span> <span class="s2">&quot;Femenino&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Joey&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Matt LeBlanc&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;año_nacimiento&quot;</span><span class="p">:</span> <span class="mi">1967</span><span class="p">,</span>
+        <span class="s2">&quot;nacionalidad&quot;</span><span class="p">:</span> <span class="s2">&quot;Estadounidense&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;género&quot;</span><span class="p">:</span> <span class="s2">&quot;Masculino&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Chandler&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Matthew Perry&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;año_nacimiento&quot;</span><span class="p">:</span> <span class="mi">1969</span><span class="p">,</span>
+        <span class="s2">&quot;nacionalidad&quot;</span><span class="p">:</span> <span class="s2">&quot;Estadounidense&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;género&quot;</span><span class="p">:</span> <span class="s2">&quot;Masculino&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Ross&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;David Schwimmer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;año_nacimiento&quot;</span><span class="p">:</span> <span class="mi">1966</span><span class="p">,</span>
+        <span class="s2">&quot;nacionalidad&quot;</span><span class="p">:</span> <span class="s2">&quot;Estadounidense&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;género&quot;</span><span class="p">:</span> <span class="s2">&quot;Masculino&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">protagonistas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Rachel&#39;: {&#39;nombre&#39;: &#39;Jennifer Aniston&#39;,
+  &#39;año_nacimiento&#39;: 1969,
+  &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+  &#39;género&#39;: &#39;Femenino&#39;},
+ &#39;Monica&#39;: {&#39;nombre&#39;: &#39;Courteney Cox&#39;,
+  &#39;año_nacimiento&#39;: 1964,
+  &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+  &#39;género&#39;: &#39;Femenino&#39;},
+ &#39;Phoebe&#39;: {&#39;nombre&#39;: &#39;Lisa Kudrow&#39;,
+  &#39;año_nacimiento&#39;: 1963,
+  &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+  &#39;género&#39;: &#39;Femenino&#39;},
+ &#39;Joey&#39;: {&#39;nombre&#39;: &#39;Matt LeBlanc&#39;,
+  &#39;año_nacimiento&#39;: 1967,
+  &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+  &#39;género&#39;: &#39;Masculino&#39;},
+ &#39;Chandler&#39;: {&#39;nombre&#39;: &#39;Matthew Perry&#39;,
+  &#39;año_nacimiento&#39;: 1969,
+  &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+  &#39;género&#39;: &#39;Masculino&#39;},
+ &#39;Ross&#39;: {&#39;nombre&#39;: &#39;David Schwimmer&#39;,
+  &#39;año_nacimiento&#39;: 1966,
+  &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+  &#39;género&#39;: &#39;Masculino&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>De esa manera podemos acceder no solamente a un valor asociado a una clave (por ejemplo, el nombre de la actriz que intepretó a Rachel), sino también a un diccionario asociado a una clave (por ejemplo, la edad de cada uno de los protagonistas).</p>
+<section id="accediendo-a-los-elementos-de-un-diccionario">
+<h3>Accediendo a los elementos de un diccionario<a class="headerlink" href="#accediendo-a-los-elementos-de-un-diccionario" title="Permalink to this headline">#</a></h3>
+<p>Para acceder a los elementos de un diccionario, podemos usar la sintaxis <code class="docutils literal notranslate"><span class="pre">diccionario[clave]</span></code>. Por ejemplo, para acceder al nombre de la actriz que interpretó a Rachel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">][</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Jennifer Aniston&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Presta atención a la sintaxis que usamos para acceder al valor deseado. Primero, accedemos al diccionario <code class="docutils literal notranslate"><span class="pre">protagonistas</span></code> y luego a la clave <code class="docutils literal notranslate"><span class="pre">&quot;Rachel&quot;</span></code>. Esa clave nos devuelve un diccionario con los datos de Rachel. Finalmente, accedemos a la clave <code class="docutils literal notranslate"><span class="pre">&quot;nombre&quot;</span></code> para obtener el valor deseado.</p>
+<p>Hagámoslo por pasos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aquí accedemos al diccionario &quot;protagonistas&quot; y a la clave &quot;Rachel&quot;</span>
+<span class="n">valor1</span> <span class="o">=</span> <span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">valor1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nombre&#39;: &#39;Jennifer Aniston&#39;, &#39;año_nacimiento&#39;: 1969, &#39;nacionalidad&#39;: &#39;Estadounidense&#39;, &#39;género&#39;: &#39;Femenino&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aquí accedemos al diccionario &quot;valor1&quot; y a la clave &quot;nombre&quot;</span>
+<span class="n">valor2</span> <span class="o">=</span> <span class="n">valor1</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">valor2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jennifer Aniston
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si la clave no existe, Python nos arrojará un error indicando que la clave es incorrecta:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Chandler&quot;</span><span class="p">][</span><span class="s2">&quot;apellido&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">z</span><span class="o">/</span><span class="n">cjmzygfj49d6yzn_qgny7hgr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_80769</span><span class="o">/</span><span class="mf">4015747152.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Chandler&quot;</span><span class="p">][</span><span class="s2">&quot;apellido&quot;</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: &#39;apellido&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="agregando-elementos-a-un-diccionario">
+<h3>Agregando elementos a un diccionario<a class="headerlink" href="#agregando-elementos-a-un-diccionario" title="Permalink to this headline">#</a></h3>
+<p>Para agregar elementos a un diccionario, podemos usar la sintaxis <code class="docutils literal notranslate"><span class="pre">diccionario[clave]</span> <span class="pre">=</span> <span class="pre">valor</span></code>. Por ejemplo, para agregar el apellido de Chandler:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Chandler&quot;</span><span class="p">][</span><span class="s2">&quot;apellido&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bing&quot;</span>
+<span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Chandler&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nombre&#39;: &#39;Matthew Perry&#39;,
+ &#39;año_nacimiento&#39;: 1969,
+ &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+ &#39;género&#39;: &#39;Masculino&#39;,
+ &#39;apellido&#39;: &#39;Bing&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notarás que el orden de los elementos no cambió. Esto es porque los diccionarios no tienen un orden definido. También notarás que no hay problema con que los demás miembros de la serie no tengan apellido. Pero si intentáramos acceder al apellido de Rachel, Python nos arrojaría un error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">][</span><span class="s2">&quot;apellido&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">z</span><span class="o">/</span><span class="n">cjmzygfj49d6yzn_qgny7hgr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_80769</span><span class="o">/</span><span class="mf">1505952786.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">][</span><span class="s2">&quot;apellido&quot;</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: &#39;apellido&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una estrategia clave para trabajar con diccionarios es la consistencia. Modificar un diccionario para que todos los elementos tengan la misma estructura es una buena práctica, incluso si los valores de algunos elementos son nulos.</p>
+</section>
+<section id="eliminando-elementos-de-un-diccionario">
+<h3>Eliminando elementos de un diccionario<a class="headerlink" href="#eliminando-elementos-de-un-diccionario" title="Permalink to this headline">#</a></h3>
+<p>Para eliminar elementos de un diccionario, podemos usar la instrucción <code class="docutils literal notranslate"><span class="pre">del</span></code>. Por ejemplo, para eliminar el apellido de Chandler:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Chandler&quot;</span><span class="p">][</span><span class="s2">&quot;apellido&quot;</span><span class="p">]</span>
+<span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Chandler&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nombre&#39;: &#39;Matthew Perry&#39;,
+ &#39;año_nacimiento&#39;: 1969,
+ &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+ &#39;género&#39;: &#39;Masculino&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Volvimos al diccionario original :D</p>
+</section>
+<section id="modificar-los-valores-de-un-diccionario">
+<h3>Modificar los valores de un diccionario<a class="headerlink" href="#modificar-los-valores-de-un-diccionario" title="Permalink to this headline">#</a></h3>
+<p>Para modificar los valores de un diccionario, podemos usar la sintaxis <code class="docutils literal notranslate"><span class="pre">diccionario[clave]</span> <span class="pre">=</span> <span class="pre">valor</span></code>. Por ejemplo, para modificar el nombre de la actriz que interpretó a Rachel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">][</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Jennifer Joanna Aniston&quot;</span>
+<span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nombre&#39;: &#39;Jennifer Joanna Aniston&#39;,
+ &#39;año_nacimiento&#39;: 1969,
+ &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+ &#39;género&#39;: &#39;Femenino&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Incluso podemos hacer una operación y devolver una nueva clave con la edad de Rachel basados en el año de nacimiento:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">][</span><span class="s2">&quot;edad&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2022</span> <span class="o">-</span> <span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">][</span><span class="s2">&quot;año_nacimiento&quot;</span><span class="p">]</span>
+<span class="n">protagonistas</span><span class="p">[</span><span class="s2">&quot;Rachel&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nombre&#39;: &#39;Jennifer Joanna Aniston&#39;,
+ &#39;año_nacimiento&#39;: 1969,
+ &#39;nacionalidad&#39;: &#39;Estadounidense&#39;,
+ &#39;género&#39;: &#39;Femenino&#39;,
+ &#39;edad&#39;: 53}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sintesis">
+<h2>Síntesis<a class="headerlink" href="#sintesis" title="Permalink to this headline">#</a></h2>
+<p>Ya abordamos los aspectos básicos de los diccionarios. Hasta ahora, hemos visto cómo modificar elementos individuales de las listas y de los diccionarios. Esta operación sería demasiado tardada si simplemente la hicieramos manualmente, no tendría ningún sentido.</p>
+<p>Como dijimos al principio, vamos desde lo más simple hasta lo más complejo. Así que ya que descubrimos cómo hacer operaciones básicas con nuestros tipos de datos, vamos a ver en la siguiente sección cómo realizar operaciones repetitivas con <em>loops</em>, cómo tomar decisiones con <em>condicionales</em> y cómo definir funciones para reutilizar código.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./caps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="3-listas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Listas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5-actividadC1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Actividad: aspectos básicos de Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jairo Antonio Melo Flórez<br/>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
