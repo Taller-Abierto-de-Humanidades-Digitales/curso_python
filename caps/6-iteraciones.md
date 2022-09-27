@@ -15,7 +15,7 @@ kernelspec:
 
 # Iteraciones (*Loops*)
 
-En las actividades anteriores, realizamos algunas operaciones simples con Python. Es sumamente importante aprender a realizar estas acciones, pero adquieren relevancia cuando nos sirven para hacer una tarea repetitiva. 
+En las actividades anteriores, realizamos algunas operaciones simples con Python. Es sumamente importante aprender a realizar estas acciones, pero adquieren relevancia cuando nos sirven para hacer una tarea repetitiva.
 
 Por ejemplo, supongamos que tenemos la cadena de caracteres con los Estados y Capitales de México:
 
@@ -29,9 +29,9 @@ Si queremos separar los estados y capitales, podemos hacerlo de la siguiente man
 estados = estados.split(", ")
 ```
 
-Con este método, estamos separando (*split*) la cadena de caracteres de acuerdo con un delimitador (*", "*). Esto nos da como resultado una lista. Cada uno de los elementos obtenidos es una cadena de caracteres que contiene un estado y su capital. 
+Con este método, estamos separando (*split*) la cadena de caracteres de acuerdo con un delimitador (*", "*). Esto nos da como resultado una lista. Cada uno de los elementos obtenidos es una cadena de caracteres que contiene un estado y su capital.
 
-Ahora, necesitaremos separar cada uno de estos elementos en dos cadenas de caracteres, una para el estado y otra para la capital. Para esto, podemos utilizar el método *split* de nuevo, pero esta vez con un delimitador diferente (*":"*). 
+Ahora, necesitaremos separar cada uno de estos elementos en dos cadenas de caracteres, una para el estado y otra para la capital. Para esto, podemos utilizar el método *split* de nuevo, pero esta vez con un delimitador diferente (*":"*).
 
 El problema está en que si aplico esto a la lista en general me dará un error:
 
@@ -39,7 +39,7 @@ El problema está en que si aplico esto a la lista en general me dará un error:
 estados = estados.split(": ")
 ```
 
-Por esa razón, tendré que aplicar a cada uno de los elementos de la lista esta separación. Podemos hacerlo caso por caso, pero esto sería muy tedioso. Para ello, utilizaremos un *for loop*. 
+Por esa razón, tendré que aplicar a cada uno de los elementos de la lista esta separación. Podemos hacerlo caso por caso, pero esto sería muy tedioso. Para ello, utilizaremos un *for loop*.
 
 ## For loops
 
@@ -148,7 +148,7 @@ from collections import Counter
 Counter(apellidos)
 ```
 
-Los *for loops* son una herramienta tan ampliamente utilizada que incluso se recomienda no utilizarlos cuando no sea necesario, ya que pueden hacer que el código sea más lento. 
+Los *for loops* son una herramienta tan ampliamente utilizada que incluso se recomienda no utilizarlos cuando no sea necesario, ya que pueden hacer que el código sea más lento.
 
 ## Listas de comprensión
 
@@ -160,7 +160,7 @@ capitales = [estado.split(": ")[1] for estado in estados]
 print(capitales)
 ```
 
-Realizamos exactamente la misma tarea que en el ejercicio anterior, pero ahorramos unas cuantas líneas de código. Básicamente tomamos la declaración del loop (`for estado in estados`) y la pasamos al "final" de la lista. A la vez, pusimos en primer lugar la operación que haremos con la iteración (`estado.split(": ")[1]`). Para que funcione, ponemos esta operación entre corchetes (`[]`).
+Realizamos exactamente la misma tarea que en el ejercicio anterior, pero ahorramos unas cuantas líneas de código. Básicamente tomamos la declaración del loop (`for estado in estados`) y la pasamos al "final" de la lista. A la vez, pusimos en primer lugar la operación que haremos con la iteración [`estado.split(": "](1)`). Para que funcione, ponemos esta operación entre corchetes (`[]`).
 
 No toda iteración puede escribirse de esta manera, pero en general se hace con aquella que implican una operación sencilla.
 
@@ -190,6 +190,6 @@ Es importante que en cada iteración se modifique la variable que se utiliza en 
 
 ## Síntesis
 
-Estos son algunos de los aspectos básicos de las iteraciones en Python. En general, recurriremos a ellas de manera continua porque son uno de los fundamentos de la programación. 
+Estos son algunos de los aspectos básicos de las iteraciones en Python. En general, recurriremos a ellas de manera continua porque son uno de los fundamentos de la programación.
 
 En el siguiente segmento, veremos los condicionales, que combinados con los *loops* nos permitirán crear programas más complejos.

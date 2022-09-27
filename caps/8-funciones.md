@@ -35,7 +35,7 @@ def saludar(nombre, genero):
 saludar("María", "f")
 ```
 
-Detengámonos un poco en la sintaxis de este código. 
+Detengámonos un poco en la sintaxis de este código.
 
 En primer lugar, debemos tener en cuenta que una función se define con la palabra reservada `def` seguida del nombre de la función y de los argumentos que recibe entre paréntesis. En este caso, la función `saludar` recibe dos argumentos: `nombre` y `genero`.
 
@@ -67,7 +67,7 @@ def saludar(nombre, genero, edad, ciudad):
 saludar("María", "f", 25, "Buenos Aires")
 ```
 
-También podemos determinar un valor por defecto para los argumentos de una función. En este caso, si no se especifica un valor para el argumento, se utilizará el valor por defecto:
+También podemos determinar un valor predeterminado para los argumentos de una función. En este caso, si no se especifica un valor para el argumento, se utilizará el valor asignado:
 
 ```{code-cell} ipython3
 
@@ -91,7 +91,82 @@ En este caso, el argumento `edad` toma el valor por defecto de 25 y el argumento
 saludar("Laura", "f", 30, "Ciudad de México")
 ```
 
-En este caso, la función se comporta de acuerdo con los nuevos valores que le estamos pasando.
+Vemos ahora como la función se comporta de acuerdo con los nuevos valores que le estamos pasando.
+
+## Retorno de valores
+
+En los ejemplos anteriores, cada función es un programa que termina con la instrucción `print`. No obstante, en la vida real, las funciones se utilizan sobre todo para transformar los datos que reciben y devolver un resultado. Para ello, la función tiene la palabra reservada `return` que indica el valor que se devuelve:
+
+```{code-cell} ipython3
+
+def saludar(nombre, genero):
+    """Saluda a alguien de acuerdo con su nombre y género"""
+    if genero == "f":
+        return f"¡Bienvenida, {nombre}!"
+    elif genero == "m":
+        return f"¡Bienvenido, {nombre}!"
+    else:
+        return f"¡Bienvenidx, {nombre}!"
+
+saludo = saludar("María", "f")
+print(saludo)
+```
+
+El comportamiento es similar al de la función `print`, pero en este caso, el valor que devuelve la función se almacena en la variable `saludo` y luego se imprime.
+
+Esta es una función sumamente simple, que no tiene una utilidad mayor, pero nos permite entender el concepto de retorno de valores.
+
+Es importante entender que una función puede retornar cualquier tipo de valor, incluyendo listas o diccionarios. ¿Recuerdas el ejemplo del condicional que nos permitía extraer las fechas de una corta biografía? En ese caso, podríamos escribir una función que haga lo mismo con cualquier biografía:
+
+```{code-cell} ipython3
+
+def extraer_fechas(biografia):
+    """
+    Extrae las fechas de una biografía
+    Es posible sintetizar mucho más esta función, pero la escribimos de esta manera para leer mejor cada paso
+    """
+
+    bio = biografia.split(" ") # Separamos la biografía en palabras
+    fechas = []
+    for palabra in bio:
+        # eliminamos los signos de puntuación
+        palabra = palabra.strip(",.;:()[]{}") # el método strip elimina los caracteres que le indicamos
+        if len(palabra) > 3 and palabra.isdigit():
+          fechas.append(int(palabra)) # el método append agrega un elemento a la lista
+        elif len(palabra) > 5 and "-" in palabra: # <-- aquí estamos buscando fechas escritas como AAAA-AAAA
+          separar_palabras = palabra.split("-")
+          for sp in separar_palabras:
+            if sp.isdigit() and len(sp) > 3:
+              fechas.append(int(sp))
+    
+    return fechas # devolvemos la lista de fechas
+```
+
+Con esta función, ya no tenemos que limitarnos a una biografía, sino que podemos extraer las fechas de cualquier biografía:
+
+```{code-cell} ipython3
+
+# Tomamos el primer párrafo de la biografía en español de Wikipedia
+
+Cervantes = "Miguel de Cervantes Saavedra (Alcalá de Henares,4​ 29 de septiembre de 1547-Madrid, 22 de abril3​ de 1616) fue un novelista, poeta, dramaturgo y soldado español."
+Quevedo = "Francisco Gómez de Quevedo Villegas y Santibáñez Cevallos (Madrid, 14 de septiembre de 1580-Villanueva de los Infantes, Ciudad Real, 8 de septiembre de 1645) fue un noble, político y escritor español del Siglo de Oro."
+Calderon = "Pedro Calderón de la Barca (Madrid, 17 de enero de 1600-25 de mayo de 1681) fue un escritor español, sacerdote católico, miembro de la Venerable Congregación de Presbíteros Seculares Naturales de Madrid San Pedro Apóstol y caballero de la Orden de Santiago, conocido fundamentalmente por ser uno de los más insignes literatos barrocos del Siglo de Oro, en especial por su teatro."
+
+bios = [Cervantes, Quevedo, Calderon]
+
+for b in bios:
+  fechas = extraer_fechas(b)
+  print(fechas)
+
+```
+
+Vemos que en este caso, la función devuelve una lista de fechas, que luego podemos utilizar para realizar cualquier tipo de análisis.
+
+## Síntesis
+
+Hemos visto algunos de los aspectos básicos de las funciones en Python. En particular, hemos visto cómo definir una función, cómo pasarle argumentos y cómo devolver un valor. Puedes notar que en este lenguaje de programación, es bastante simple definir funciones y construir las propias.
+
+Básicamente, con los conceptos que hemos visto hasta ahora podemos construir programas de cierta complejidad, todo depende del problema que queramos resolver y de los datos que tengamos disponibles.
 
 ## Notas
 
