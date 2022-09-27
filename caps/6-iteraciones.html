@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Iteraciones (Loops) &#8212; Curso rápido de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Condicionales" href="7-condicionales.html" />
+    <link rel="prev" title="Actividad: aspectos básicos de Python" href="5-actividadC1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QKKV7Q3XE3"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-QKKV7Q3XE3');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Curso rápido de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Te damos la bienvenida a este microcurso de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Empecemos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-inicio.html">
+   Un curso rapidísimo de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-colab.html">
+   Crear un cuaderno para prácticar con código
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Aspectos básicos de Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-variables.html">
+   Sintaxis, variables y tipos de datos básicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-listas.html">
+   Listas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-diccionarios.html">
+   Diccionarios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-actividadC1.html">
+   Actividad: aspectos básicos de Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Iteraciones, condicionales y funciones
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Iteraciones (
+   <em>
+    Loops
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7-condicionales.html">
+   Condicionales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8-funciones.html">
+   Funciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bibiografía
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Taller-Abierto-de-Humanidades-Digitales/curso_python/gh-pages?urlpath=tree/caps/6-iteraciones.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Taller-Abierto-de-Humanidades-Digitales/curso_python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Taller-Abierto-de-Humanidades-Digitales/curso_python/issues/new?title=Issue%20on%20page%20%2Fcaps/6-iteraciones.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/caps/6-iteraciones.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/caps/6-iteraciones.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
+   For loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iteracion-sobre-una-lista">
+     Iteración sobre una lista
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crear-listas-a-partir-de-iteraciones">
+   Crear listas a partir de iteraciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listas-de-comprension">
+   Listas de comprensión
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while-loops">
+   While loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sintesis">
+   Síntesis
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Iteraciones (Loops)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
+   For loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iteracion-sobre-una-lista">
+     Iteración sobre una lista
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crear-listas-a-partir-de-iteraciones">
+   Crear listas a partir de iteraciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listas-de-comprension">
+   Listas de comprensión
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while-loops">
+   While loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sintesis">
+   Síntesis
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="iteraciones-loops">
+<h1>Iteraciones (<em>Loops</em>)<a class="headerlink" href="#iteraciones-loops" title="Permalink to this headline">#</a></h1>
+<p>En las actividades anteriores, realizamos algunas operaciones simples con Python. Es sumamente importante aprender a realizar estas acciones, pero adquieren relevancia cuando nos sirven para hacer una tarea repetitiva.</p>
+<p>Por ejemplo, supongamos que tenemos la cadena de caracteres con los Estados y Capitales de México:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estados</span> <span class="o">=</span> <span class="s2">&quot;Aguascalientes: Aguascalientes, Baja California: Mexicali, Baja California Sur: La Paz, Campeche: Campeche, Chiapas: Tuxla Gutiérrez, Chihuahua: Chihuahua, Ciudad de México: Ciudad de México, Coahuila de Zaragoza: Saltillo, Colima: Colima, Durango: Durango, Estado de México: Toluca de Lerdo, Guanajuato: Guanajuato, Hidalgo: Pachuca de Soto, Jalisco: Guadalajara, Michoacán: Morelia, Morelos: Cuernavaca, Nayarit: Tepic, Nuevo León: Monterrey, Oaxaca: Oaxaca de Juárez, Puebla: Puebla de Zaragoza, Querétaro: Santiago de Querétaro, Quintana Roo: Chetumal, San Luis Potosí: San Luis Potosí, Sinaloa: Culiacán, Sonora: Hermosillo, Tabasco: Villahermosa, Tamaulipas: Ciudad Victoria, Tlaxcala: Tlaxcala, Veracruz: Xalapa, Yucatán: Mérida, Zacatecas: Zacatecas&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si queremos separar los estados y capitales, podemos hacerlo de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estados</span> <span class="o">=</span> <span class="n">estados</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con este método, estamos separando (<em>split</em>) la cadena de caracteres de acuerdo con un delimitador (<em>”, “</em>). Esto nos da como resultado una lista. Cada uno de los elementos obtenidos es una cadena de caracteres que contiene un estado y su capital.</p>
+<p>Ahora, necesitaremos separar cada uno de estos elementos en dos cadenas de caracteres, una para el estado y otra para la capital. Para esto, podemos utilizar el método <em>split</em> de nuevo, pero esta vez con un delimitador diferente (<em>“:”</em>).</p>
+<p>El problema está en que si aplico esto a la lista en general me dará un error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estados</span> <span class="o">=</span> <span class="n">estados</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">z</span><span class="o">/</span><span class="n">cjmzygfj49d6yzn_qgny7hgr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_58579</span><span class="o">/</span><span class="mf">3763931042.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">estados</span> <span class="o">=</span> <span class="n">estados</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;split&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por esa razón, tendré que aplicar a cada uno de los elementos de la lista esta separación. Podemos hacerlo caso por caso, pero esto sería muy tedioso. Para ello, utilizaremos un <em>for loop</em>.</p>
+<section id="for-loops">
+<h2>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h2>
+<p>Un <em>for loop</em> es una estructura de control que nos permite repetir una acción un número determinado de veces. En Python, se utiliza la palabra reservada <em>for</em> para indicar que se va a realizar una iteración.</p>
+<p>Apliquemos esta idea en la lista de Estados y capitales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">estado</span> <span class="ow">in</span> <span class="n">estados</span><span class="p">:</span>
+    <span class="n">estado</span> <span class="o">=</span> <span class="n">estado</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">estado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Aguascalientes&#39;, &#39;Aguascalientes&#39;]
+[&#39;Baja California&#39;, &#39;Mexicali&#39;]
+[&#39;Baja California Sur&#39;, &#39;La Paz&#39;]
+[&#39;Campeche&#39;, &#39;Campeche&#39;]
+[&#39;Chiapas&#39;, &#39;Tuxla Gutiérrez&#39;]
+[&#39;Chihuahua&#39;, &#39;Chihuahua&#39;]
+[&#39;Ciudad de México&#39;, &#39;Ciudad de México&#39;]
+[&#39;Coahuila de Zaragoza&#39;, &#39;Saltillo&#39;]
+[&#39;Colima&#39;, &#39;Colima&#39;]
+[&#39;Durango&#39;, &#39;Durango&#39;]
+[&#39;Estado de México&#39;, &#39;Toluca de Lerdo&#39;]
+[&#39;Guanajuato&#39;, &#39;Guanajuato&#39;]
+[&#39;Hidalgo&#39;, &#39;Pachuca de Soto&#39;]
+[&#39;Jalisco&#39;, &#39;Guadalajara&#39;]
+[&#39;Michoacán&#39;, &#39;Morelia&#39;]
+[&#39;Morelos&#39;, &#39;Cuernavaca&#39;]
+[&#39;Nayarit&#39;, &#39;Tepic&#39;]
+[&#39;Nuevo León&#39;, &#39;Monterrey&#39;]
+[&#39;Oaxaca&#39;, &#39;Oaxaca de Juárez&#39;]
+[&#39;Puebla&#39;, &#39;Puebla de Zaragoza&#39;]
+[&#39;Querétaro&#39;, &#39;Santiago de Querétaro&#39;]
+[&#39;Quintana Roo&#39;, &#39;Chetumal&#39;]
+[&#39;San Luis Potosí&#39;, &#39;San Luis Potosí&#39;]
+[&#39;Sinaloa&#39;, &#39;Culiacán&#39;]
+[&#39;Sonora&#39;, &#39;Hermosillo&#39;]
+[&#39;Tabasco&#39;, &#39;Villahermosa&#39;]
+[&#39;Tamaulipas&#39;, &#39;Ciudad Victoria&#39;]
+[&#39;Tlaxcala&#39;, &#39;Tlaxcala&#39;]
+[&#39;Veracruz&#39;, &#39;Xalapa&#39;]
+[&#39;Yucatán&#39;, &#39;Mérida&#39;]
+[&#39;Zacatecas&#39;, &#39;Zacatecas&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que cada uno de los elementos de la lista se ha separado en un listado de dos elementos. El primer elemento corresponde al Estado y el segundo a su capital.</p>
+<p>Podríamos, por lo tanto, separar cada uno de estos elementos en dos variables y asignarle una categoría textual para describir su contenido:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">estado</span> <span class="ow">in</span> <span class="n">estados</span><span class="p">:</span>
+    <span class="n">estado</span> <span class="o">=</span> <span class="n">estado</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+    <span class="n">estado</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Estado: &quot;</span> <span class="o">+</span> <span class="n">estado</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">estado</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Capital: &quot;</span> <span class="o">+</span> <span class="n">estado</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">estado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Estado: Aguascalientes&#39;, &#39;Capital: Aguascalientes&#39;]
+[&#39;Estado: Baja California&#39;, &#39;Capital: Mexicali&#39;]
+[&#39;Estado: Baja California Sur&#39;, &#39;Capital: La Paz&#39;]
+[&#39;Estado: Campeche&#39;, &#39;Capital: Campeche&#39;]
+[&#39;Estado: Chiapas&#39;, &#39;Capital: Tuxla Gutiérrez&#39;]
+[&#39;Estado: Chihuahua&#39;, &#39;Capital: Chihuahua&#39;]
+[&#39;Estado: Ciudad de México&#39;, &#39;Capital: Ciudad de México&#39;]
+[&#39;Estado: Coahuila de Zaragoza&#39;, &#39;Capital: Saltillo&#39;]
+[&#39;Estado: Colima&#39;, &#39;Capital: Colima&#39;]
+[&#39;Estado: Durango&#39;, &#39;Capital: Durango&#39;]
+[&#39;Estado: Estado de México&#39;, &#39;Capital: Toluca de Lerdo&#39;]
+[&#39;Estado: Guanajuato&#39;, &#39;Capital: Guanajuato&#39;]
+[&#39;Estado: Hidalgo&#39;, &#39;Capital: Pachuca de Soto&#39;]
+[&#39;Estado: Jalisco&#39;, &#39;Capital: Guadalajara&#39;]
+[&#39;Estado: Michoacán&#39;, &#39;Capital: Morelia&#39;]
+[&#39;Estado: Morelos&#39;, &#39;Capital: Cuernavaca&#39;]
+[&#39;Estado: Nayarit&#39;, &#39;Capital: Tepic&#39;]
+[&#39;Estado: Nuevo León&#39;, &#39;Capital: Monterrey&#39;]
+[&#39;Estado: Oaxaca&#39;, &#39;Capital: Oaxaca de Juárez&#39;]
+[&#39;Estado: Puebla&#39;, &#39;Capital: Puebla de Zaragoza&#39;]
+[&#39;Estado: Querétaro&#39;, &#39;Capital: Santiago de Querétaro&#39;]
+[&#39;Estado: Quintana Roo&#39;, &#39;Capital: Chetumal&#39;]
+[&#39;Estado: San Luis Potosí&#39;, &#39;Capital: San Luis Potosí&#39;]
+[&#39;Estado: Sinaloa&#39;, &#39;Capital: Culiacán&#39;]
+[&#39;Estado: Sonora&#39;, &#39;Capital: Hermosillo&#39;]
+[&#39;Estado: Tabasco&#39;, &#39;Capital: Villahermosa&#39;]
+[&#39;Estado: Tamaulipas&#39;, &#39;Capital: Ciudad Victoria&#39;]
+[&#39;Estado: Tlaxcala&#39;, &#39;Capital: Tlaxcala&#39;]
+[&#39;Estado: Veracruz&#39;, &#39;Capital: Xalapa&#39;]
+[&#39;Estado: Yucatán&#39;, &#39;Capital: Mérida&#39;]
+[&#39;Estado: Zacatecas&#39;, &#39;Capital: Zacatecas&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Incluso, podemos crear un diccionario, para que de esa manera podamos acceder a los elementos de manera más sencilla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estados_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">estado</span> <span class="ow">in</span> <span class="n">estados</span><span class="p">:</span>
+    <span class="n">estado</span> <span class="o">=</span> <span class="n">estado</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+    <span class="n">estados_dict</span><span class="p">[</span><span class="n">estado</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">estado</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">estados_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Aguascalientes&#39;: &#39;Aguascalientes&#39;, &#39;Baja California&#39;: &#39;Mexicali&#39;, &#39;Baja California Sur&#39;: &#39;La Paz&#39;, &#39;Campeche&#39;: &#39;Campeche&#39;, &#39;Chiapas&#39;: &#39;Tuxla Gutiérrez&#39;, &#39;Chihuahua&#39;: &#39;Chihuahua&#39;, &#39;Ciudad de México&#39;: &#39;Ciudad de México&#39;, &#39;Coahuila de Zaragoza&#39;: &#39;Saltillo&#39;, &#39;Colima&#39;: &#39;Colima&#39;, &#39;Durango&#39;: &#39;Durango&#39;, &#39;Estado de México&#39;: &#39;Toluca de Lerdo&#39;, &#39;Guanajuato&#39;: &#39;Guanajuato&#39;, &#39;Hidalgo&#39;: &#39;Pachuca de Soto&#39;, &#39;Jalisco&#39;: &#39;Guadalajara&#39;, &#39;Michoacán&#39;: &#39;Morelia&#39;, &#39;Morelos&#39;: &#39;Cuernavaca&#39;, &#39;Nayarit&#39;: &#39;Tepic&#39;, &#39;Nuevo León&#39;: &#39;Monterrey&#39;, &#39;Oaxaca&#39;: &#39;Oaxaca de Juárez&#39;, &#39;Puebla&#39;: &#39;Puebla de Zaragoza&#39;, &#39;Querétaro&#39;: &#39;Santiago de Querétaro&#39;, &#39;Quintana Roo&#39;: &#39;Chetumal&#39;, &#39;San Luis Potosí&#39;: &#39;San Luis Potosí&#39;, &#39;Sinaloa&#39;: &#39;Culiacán&#39;, &#39;Sonora&#39;: &#39;Hermosillo&#39;, &#39;Tabasco&#39;: &#39;Villahermosa&#39;, &#39;Tamaulipas&#39;: &#39;Ciudad Victoria&#39;, &#39;Tlaxcala&#39;: &#39;Tlaxcala&#39;, &#39;Veracruz&#39;: &#39;Xalapa&#39;, &#39;Yucatán&#39;: &#39;Mérida&#39;, &#39;Zacatecas&#39;: &#39;Zacatecas&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, si quisiera saber la capital de un estado, puedo hacerlo de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estados_dict</span><span class="p">[</span><span class="s2">&quot;Chiapas&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tuxla Gutiérrez&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a ver con más detalle qué hicimos en el ejercicio anterior.</p>
+<section id="iteracion-sobre-una-lista">
+<h3>Iteración sobre una lista<a class="headerlink" href="#iteracion-sobre-una-lista" title="Permalink to this headline">#</a></h3>
+<p>En el ejemplo anterior, iteramos sobre una lista. Esto significa que, para cada uno de los elementos de la lista, se ejecutó el código que se encuentra dentro del <em>for loop</em>.</p>
+<p>Es decir, es como si hubiéramos escrito el código de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estado1</span> <span class="o">=</span> <span class="n">estados</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">estado1</span> <span class="o">=</span> <span class="n">estado1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+<span class="n">estado1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Estado: &quot;</span> <span class="o">+</span> <span class="n">estado1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">estado1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Capital: &quot;</span> <span class="o">+</span> <span class="n">estado1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">estado1</span><span class="p">)</span>
+
+<span class="n">estado2</span> <span class="o">=</span> <span class="n">estados</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">estado2</span> <span class="o">=</span> <span class="n">estado2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+<span class="n">estado2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Estado: &quot;</span> <span class="o">+</span> <span class="n">estado2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">estado2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Capital: &quot;</span> <span class="o">+</span> <span class="n">estado2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">estado2</span><span class="p">)</span>
+
+<span class="c1"># y así sucesivamente</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Estado: Aguascalientes&#39;, &#39;Capital: Aguascalientes&#39;]
+[&#39;Estado: Baja California&#39;, &#39;Capital: Mexicali&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Claramente, escribir el código de esa manera no sería para nada práctico, de hecho sería más lento y difícil que hacerlo a mano directamente.</p>
+<p>Las iteraciones o <em>loops</em> son una herramienta muy poderosa que nos permite automatizar procesos repetitivos y hacerlos más eficientes.</p>
+</section>
+</section>
+<section id="crear-listas-a-partir-de-iteraciones">
+<h2>Crear listas a partir de iteraciones<a class="headerlink" href="#crear-listas-a-partir-de-iteraciones" title="Permalink to this headline">#</a></h2>
+<p>Supongamos que no queremos separar los elementos de la lista, sino recuperar únicamente los elementos que corresponden a las capitales de los Estados. En este caso, lo que haremos será crear una lista vacía y agregar a esta lista cada una de las capitales que se encuentren en la lista de Estados y capitales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">capitales</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">estado</span> <span class="ow">in</span> <span class="n">estados</span><span class="p">:</span>
+    <span class="n">estado</span> <span class="o">=</span> <span class="n">estado</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+    <span class="n">capitales</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">estado</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">capitales</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Aguascalientes&#39;, &#39;Mexicali&#39;, &#39;La Paz&#39;, &#39;Campeche&#39;, &#39;Tuxla Gutiérrez&#39;, &#39;Chihuahua&#39;, &#39;Ciudad de México&#39;, &#39;Saltillo&#39;, &#39;Colima&#39;, &#39;Durango&#39;, &#39;Toluca de Lerdo&#39;, &#39;Guanajuato&#39;, &#39;Pachuca de Soto&#39;, &#39;Guadalajara&#39;, &#39;Morelia&#39;, &#39;Cuernavaca&#39;, &#39;Tepic&#39;, &#39;Monterrey&#39;, &#39;Oaxaca de Juárez&#39;, &#39;Puebla de Zaragoza&#39;, &#39;Santiago de Querétaro&#39;, &#39;Chetumal&#39;, &#39;San Luis Potosí&#39;, &#39;Culiacán&#39;, &#39;Hermosillo&#39;, &#39;Villahermosa&#39;, &#39;Ciudad Victoria&#39;, &#39;Tlaxcala&#39;, &#39;Xalapa&#39;, &#39;Mérida&#39;, &#39;Zacatecas&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esta es una tarea muy recurrida y que nos puede servir para separar elementos a partir de un identificador común. Por ejemplo, si tenemos una lista de nombres de personas y queremos separar los nombres de los apellidos, podemos hacerlo de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Juan Pérez&quot;</span><span class="p">,</span> <span class="s2">&quot;María López&quot;</span><span class="p">,</span> <span class="s2">&quot;Pedro Pérez&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana García&quot;</span><span class="p">,</span> <span class="s2">&quot;José Hernández&quot;</span><span class="p">,</span> <span class="s2">&quot;María Martínez&quot;</span><span class="p">,</span> <span class="s2">&quot;Pedro García&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana Hernández&quot;</span><span class="p">,</span> <span class="s2">&quot;José Martínez&quot;</span><span class="p">,</span> <span class="s2">&quot;María Pérez&quot;</span><span class="p">]</span>
+
+<span class="n">apellidos</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">nombres</span><span class="p">:</span>
+    <span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">apellidos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nombre</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">apellidos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pérez&#39;, &#39;López&#39;, &#39;Pérez&#39;, &#39;García&#39;, &#39;Hernández&#39;, &#39;Martínez&#39;, &#39;García&#39;, &#39;Hernández&#39;, &#39;Martínez&#39;, &#39;Pérez&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y con esta lista, podemos hacer una operación como contar cuántas veces se repite cada apellido:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">Counter</span><span class="p">(</span><span class="n">apellidos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({&#39;Pérez&#39;: 3, &#39;López&#39;: 1, &#39;García&#39;: 2, &#39;Hernández&#39;: 2, &#39;Martínez&#39;: 2})
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los <em>for loops</em> son una herramienta tan ampliamente utilizada que incluso se recomienda no utilizarlos cuando no sea necesario, ya que pueden hacer que el código sea más lento.</p>
+</section>
+<section id="listas-de-comprension">
+<h2>Listas de comprensión<a class="headerlink" href="#listas-de-comprension" title="Permalink to this headline">#</a></h2>
+<p>Esta es un concepto un poquito más avanzado, pero que es muy útil para crear listas a partir de iteraciones. En lugar de crear una lista vacía y agregar elementos a esta lista, podemos crear una lista a partir de una iteración.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">capitales</span> <span class="o">=</span> <span class="p">[</span><span class="n">estado</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">estado</span> <span class="ow">in</span> <span class="n">estados</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">capitales</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Aguascalientes&#39;, &#39;Mexicali&#39;, &#39;La Paz&#39;, &#39;Campeche&#39;, &#39;Tuxla Gutiérrez&#39;, &#39;Chihuahua&#39;, &#39;Ciudad de México&#39;, &#39;Saltillo&#39;, &#39;Colima&#39;, &#39;Durango&#39;, &#39;Toluca de Lerdo&#39;, &#39;Guanajuato&#39;, &#39;Pachuca de Soto&#39;, &#39;Guadalajara&#39;, &#39;Morelia&#39;, &#39;Cuernavaca&#39;, &#39;Tepic&#39;, &#39;Monterrey&#39;, &#39;Oaxaca de Juárez&#39;, &#39;Puebla de Zaragoza&#39;, &#39;Santiago de Querétaro&#39;, &#39;Chetumal&#39;, &#39;San Luis Potosí&#39;, &#39;Culiacán&#39;, &#39;Hermosillo&#39;, &#39;Villahermosa&#39;, &#39;Ciudad Victoria&#39;, &#39;Tlaxcala&#39;, &#39;Xalapa&#39;, &#39;Mérida&#39;, &#39;Zacatecas&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Realizamos exactamente la misma tarea que en el ejercicio anterior, pero ahorramos unas cuantas líneas de código. Básicamente tomamos la declaración del loop (<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">estado</span> <span class="pre">in</span> <span class="pre">estados</span></code>) y la pasamos al “final” de la lista. A la vez, pusimos en primer lugar la operación que haremos con la iteración (<code class="docutils literal notranslate"><span class="pre">estado.split(&quot;:</span> <span class="pre">&quot;)[1]</span></code>). Para que funcione, ponemos esta operación entre corchetes (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p>
+<p>No toda iteración puede escribirse de esta manera, pero en general se hace con aquella que implican una operación sencilla.</p>
+<p>No esperamos que domines inmediatamente este concepto, pero estoy seguro que lo encontrarás en ejemplos y en tutoriales de Python, por eso es bueno que lo tengas en cuenta.</p>
+</section>
+<section id="while-loops">
+<h2>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h2>
+<p>Los <em>while loops</em> son otra estrategia para realizar iteraciones. En general, son menos utilizados que los <em>for loops</em>, pero pueden ser muy útiles en ciertas situaciones. Por ejemplo, cuando no sabemos cuántas veces se va a repetir un proceso.</p>
+<p>Los <em>while loops</em> se ejecutan mientras una condición sea verdadera. Por ejemplo, si queremos imprimir los números del 1 al 10, podemos hacerlo de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, la condición es que <code class="docutils literal notranslate"><span class="pre">i</span></code> sea menor o igual a 10. En cada iteración, se imprime el valor de <code class="docutils literal notranslate"><span class="pre">i</span></code> y se le suma 1. Cuando <code class="docutils literal notranslate"><span class="pre">i</span></code> ya no es menor o igual a 10, el <em>while loop</em> se detiene.</p>
+<div class="warning admonition">
+<p class="admonition-title">Precaución</p>
+<p>Es importante que en cada iteración se modifique la variable que se utiliza en la condición, de lo contrario el <em>while loop</em> se ejecutará indefinidamente. Eso es lo que se denomina como un <em>loop infinito</em>.</p>
+</div>
+</section>
+<section id="sintesis">
+<h2>Síntesis<a class="headerlink" href="#sintesis" title="Permalink to this headline">#</a></h2>
+<p>Estos son algunos de los aspectos básicos de las iteraciones en Python. En general, recurriremos a ellas de manera continua porque son uno de los fundamentos de la programación.</p>
+<p>En el siguiente segmento, veremos los condicionales, que combinados con los <em>loops</em> nos permitirán crear programas más complejos.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./caps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="5-actividadC1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Actividad: aspectos básicos de Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="7-condicionales.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Condicionales</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jairo Antonio Melo Flórez<br/>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
