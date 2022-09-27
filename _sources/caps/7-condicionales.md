@@ -112,7 +112,7 @@ Para conseguir lo anterior, debemos realizar varias operaciones:
 
 1. Separar la biografía en palabras (`split()`).
 2. Eliminar la puntuación de cada palabra (`replace()`). De otra manera, no identificaría una fecha como "(1543)".
-3. En caso de que la palabra tenga el formato "AAAA-AAAA", separarla en dos palabras (`split('-')`) y agregar ambas a la lista de fechas (`append()`). 
+3. En caso de que la palabra tenga el formato "AAAA-AAAA", separarla en dos palabras (`split('-')`) y agregar ambas a la lista de fechas (`append()`).
 4. Determinar si la palabra es un número (`isnumeric()`).
 5. Agregar la palabra a la lista de fechas (`append()`).
 

@@ -191,6 +191,11 @@ const thebe_selector_output = ".output, .cell_output"
    Funciones
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9-actividadC2.html">
+   Actividad: un programa real
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -550,7 +555,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">z</span><span class="o">/</span><span class="n">cjmzygfj49d6yzn_qgny7hgr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_58579</span><span class="o">/</span><span class="mf">3763931042.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">z</span><span class="o">/</span><span class="n">cjmzygfj49d6yzn_qgny7hgr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_73684</span><span class="o">/</span><span class="mf">3763931042.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">estados</span> <span class="o">=</span> <span class="n">estados</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
 
 <span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;split&#39;
@@ -797,7 +802,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Realizamos exactamente la misma tarea que en el ejercicio anterior, pero ahorramos unas cuantas líneas de código. Básicamente tomamos la declaración del loop (<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">estado</span> <span class="pre">in</span> <span class="pre">estados</span></code>) y la pasamos al “final” de la lista. A la vez, pusimos en primer lugar la operación que haremos con la iteración (<code class="docutils literal notranslate"><span class="pre">estado.split(&quot;:</span> <span class="pre">&quot;)[1]</span></code>). Para que funcione, ponemos esta operación entre corchetes (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p>
+<p>Realizamos exactamente la misma tarea que en el ejercicio anterior, pero ahorramos unas cuantas líneas de código. Básicamente tomamos la declaración del loop (<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">estado</span> <span class="pre">in</span> <span class="pre">estados</span></code>) y la pasamos al “final” de la lista. A la vez, pusimos en primer lugar la operación que haremos con la iteración [<code class="docutils literal notranslate"><span class="pre">estado.split(&quot;:</span> <span class="pre">&quot;](1)</span></code>). Para que funcione, ponemos esta operación entre corchetes (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p>
 <p>No toda iteración puede escribirse de esta manera, pero en general se hace con aquella que implican una operación sencilla.</p>
 <p>No esperamos que domines inmediatamente este concepto, pero estoy seguro que lo encontrarás en ejemplos y en tutoriales de Python, por eso es bueno que lo tengas en cuenta.</p>
 </section>
