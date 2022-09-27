@@ -14,6 +14,11 @@ parts:
     - file: caps/3-listas
     - file: caps/4-diccionarios
     - file: caps/5-actividadC1
+  - caption: Iteraciones, condicionales y funciones
+    chapters:
+    - file: caps/6-iteraciones
+    - file: caps/7-condicionales
+    - file: caps/8-funciones
   - caption: Bibiografía
     chapters:
     - file: references
