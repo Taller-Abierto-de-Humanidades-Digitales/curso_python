@@ -19,6 +19,7 @@ parts:
     - file: caps/6-iteraciones
     - file: caps/7-condicionales
     - file: caps/8-funciones
+    - file: caps/9-actividadC2
   - caption: Bibiografía
     chapters:
     - file: references

@@ -13,6 +13,7 @@ execute:
   timeout: 200
   exclude_patterns:
     - '5-actividadC1*'
+    - '9-actividadC2*'
 
 # Define the name of the latex output file for PDF builds
 latex:
