@@ -20,6 +20,9 @@ parts:
     - file: caps/7-condicionales
     - file: caps/8-funciones
     - file: caps/9-actividadC2
+  - caption: Conclusión
+    chapters:
+    - file: caps/10-cierre
   - caption: Bibiografía
     chapters:
     - file: references
