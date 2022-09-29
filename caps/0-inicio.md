@@ -60,8 +60,8 @@ print("Hola", nombre, apellido)
 
 En este caso, el programa tiene tres instrucciones:
 
-1. Asignar el valor "Juan" a la variable `nombre`.
-2. Asignar el valor "Pérez" a la variable `apellido`.
+1. Asignar el valor "Francisco" a la variable `nombre`.
+2. Asignar el valor "Azimov" a la variable `apellido`.
 3. Imprimir el mensaje "Hola" seguido del valor de las variables `nombre` y `apellido`.
 
 Vamos a explorar más sobre las variables un poco más adelante. Por lo pronto, es suficiente con que tengas en cuenta que la computadora no entiende valores complejos, y en las humanidades (paradójicamente) vivimos en un mundo de complejidad. Por eso, necesitamos que la computadora entienda los conceptos que nosotros queremos analizar y esos valores se asignan a variables.
