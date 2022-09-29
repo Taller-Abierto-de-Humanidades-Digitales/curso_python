@@ -120,8 +120,6 @@ Para conseguir lo anterior, debemos realizar varias operaciones:
 
 palabras = bio.split()
 
-palabras = bio.split()
-
 fechas = []
 
 for palabra in palabras:
