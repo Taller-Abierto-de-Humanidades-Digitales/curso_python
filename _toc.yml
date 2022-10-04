@@ -23,6 +23,7 @@ parts:
   - caption: Conclusión
     chapters:
     - file: caps/10-cierre
-  - caption: Bibiografía
+  - caption: Recursos adicionales
     chapters:
+    - file: profundizar
     - file: references
