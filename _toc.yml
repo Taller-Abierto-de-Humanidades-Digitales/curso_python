@@ -27,3 +27,4 @@ parts:
     chapters:
     - file: profundizar
     - file: references
+    - file: changelog
