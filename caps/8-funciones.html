@@ -225,6 +225,15 @@ const thebe_selector_output = ".output, .cell_output"
    Bibliografía
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Registro de cambios [
+   <em>
+    changelog
+   </em>
+   ]
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -643,6 +652,10 @@ Veo que tienes 30 años y vives en Ciudad de México.
 <p>El comportamiento es similar al de la función <code class="docutils literal notranslate"><span class="pre">print</span></code>, pero en este caso, el valor que devuelve la función se almacena en la variable <code class="docutils literal notranslate"><span class="pre">saludo</span></code> y luego se imprime.</p>
 <p>Esta es una función sumamente simple, que no tiene una utilidad mayor, pero nos permite entender el concepto de retorno de valores.</p>
 <p>Es importante entender que una función puede retornar cualquier tipo de valor, incluyendo listas o diccionarios. ¿Recuerdas el ejemplo del condicional que nos permitía extraer las fechas de una corta biografía? En ese caso, podríamos escribir una función que haga lo mismo con cualquier biografía:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La lógica de esta función viene determinada por el tipo de información que le estamos pasando al programa. En este caso, sabemos que las fechas se escriben completas (AAAA) y que no contamos con valores decimales que nos puedan confundir (p. ej, en “1894.45” el primer valor - 1894 - es una fecha y el segundo valor - 45 - es un llamado a una nota al pie). Es por tanto una función hecha a propósito para este caso particular.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extraer_fechas</span><span class="p">(</span><span class="n">biografia</span><span class="p">):</span>
@@ -654,12 +667,20 @@ Veo que tienes 30 años y vives en Ciudad de México.
     <span class="n">bio</span> <span class="o">=</span> <span class="n">biografia</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1"># Separamos la biografía en palabras</span>
     <span class="n">fechas</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">palabra</span> <span class="ow">in</span> <span class="n">bio</span><span class="p">:</span>
-        <span class="c1"># eliminamos los signos de puntuación</span>
-        <span class="n">palabra</span> <span class="o">=</span> <span class="n">palabra</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;,.;:()[]</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># el método strip elimina los caracteres que le indicamos</span>
+        <span class="c1"># eliminamos los signos de puntuación excepto puntos y guiones</span>
+        <span class="n">palabra</span> <span class="o">=</span> <span class="n">palabra</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;,;:()[]</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># el método strip elimina los caracteres que le indicamos al inicio o al final de la cadena</span>
+        <span class="k">if</span> <span class="n">palabra</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span> <span class="c1"># el método endswith verifica si la cadena termina con el caracter que le indicamos</span>
+          <span class="n">palabra</span> <span class="o">=</span> <span class="n">palabra</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">palabra</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">palabra</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
           <span class="n">fechas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">palabra</span><span class="p">))</span> <span class="c1"># el método append agrega un elemento a la lista</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">palabra</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="s2">&quot;-&quot;</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span> <span class="c1"># &lt;-- aquí estamos buscando fechas escritas como AAAA-AAAA</span>
           <span class="n">separar_palabras</span> <span class="o">=</span> <span class="n">palabra</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">sp</span> <span class="ow">in</span> <span class="n">separar_palabras</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sp</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+              <span class="n">fechas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sp</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">palabra</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span> <span class="c1"># &lt;-- aquí estamos buscando valores numéricos que tengan un punto en el medio</span>
+          <span class="n">separar_palabras</span> <span class="o">=</span> <span class="n">palabra</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
           <span class="k">for</span> <span class="n">sp</span> <span class="ow">in</span> <span class="n">separar_palabras</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">sp</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
               <span class="n">fechas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sp</span><span class="p">))</span>

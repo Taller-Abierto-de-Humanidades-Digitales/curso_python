@@ -118,6 +118,10 @@ Esta es una función sumamente simple, que no tiene una utilidad mayor, pero nos
 
 Es importante entender que una función puede retornar cualquier tipo de valor, incluyendo listas o diccionarios. ¿Recuerdas el ejemplo del condicional que nos permitía extraer las fechas de una corta biografía? En ese caso, podríamos escribir una función que haga lo mismo con cualquier biografía:
 
+```{note}
+La lógica de esta función viene determinada por el tipo de información que le estamos pasando al programa. En este caso, sabemos que las fechas se escriben completas (AAAA) y que no contamos con valores decimales que nos puedan confundir (p. ej, en "1894.45" el primer valor - 1894 - es una fecha y el segundo valor - 45 - es un llamado a una nota al pie). Es por tanto una función hecha a propósito para este caso particular.
+```
+
 ```{code-cell} ipython3
 
 def extraer_fechas(biografia):
@@ -129,12 +133,20 @@ def extraer_fechas(biografia):
     bio = biografia.split(" ") # Separamos la biografía en palabras
     fechas = []
     for palabra in bio:
-        # eliminamos los signos de puntuación
-        palabra = palabra.strip(",.;:()[]{}") # el método strip elimina los caracteres que le indicamos
+        # eliminamos los signos de puntuación excepto puntos y guiones
+        palabra = palabra.strip(",;:()[]{}") # el método strip elimina los caracteres que le indicamos al inicio o al final de la cadena
+        if palabra.endswith("."): # el método endswith verifica si la cadena termina con el caracter que le indicamos
+          palabra = palabra.replace(".", "")
+
         if len(palabra) > 3 and palabra.isdigit():
           fechas.append(int(palabra)) # el método append agrega un elemento a la lista
         elif len(palabra) > 5 and "-" in palabra: # <-- aquí estamos buscando fechas escritas como AAAA-AAAA
           separar_palabras = palabra.split("-")
+          for sp in separar_palabras:
+            if sp.isdigit() and len(sp) > 3:
+              fechas.append(int(sp))
+        elif len(palabra) > 5 and "." in palabra: # <-- aquí estamos buscando valores numéricos que tengan un punto en el medio
+          separar_palabras = palabra.split(".")
           for sp in separar_palabras:
             if sp.isdigit() and len(sp) > 3:
               fechas.append(int(sp))
