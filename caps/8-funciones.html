@@ -463,6 +463,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#escribir-codigo-de-manera-sucinta">
+   Escribir código de manera sucinta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sintesis">
    Síntesis
   </a>
@@ -494,6 +499,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#retorno-de-valores">
    Retorno de valores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#escribir-codigo-de-manera-sucinta">
+   Escribir código de manera sucinta
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -716,6 +726,33 @@ Veo que tienes 30 años y vives en Ciudad de México.
 </div>
 </div>
 <p>Vemos que en este caso, la función devuelve una lista de fechas, que luego podemos utilizar para realizar cualquier tipo de análisis.</p>
+</section>
+<section id="escribir-codigo-de-manera-sucinta">
+<h2>Escribir código de manera sucinta<a class="headerlink" href="#escribir-codigo-de-manera-sucinta" title="Permalink to this headline">#</a></h2>
+<p>Nuestra función <code class="docutils literal notranslate"><span class="pre">extraer_fechas()</span></code> funciona sin problemas. Sin embargo, esto no significa que esté bien escrita. Dicha función sufre de un mal que se denomina “verborrea” (en inglés lo encontrarás mucho como <em>verbose</em>), es decir, escribir con muchas más instrucciones, variables, valores, etc; de los necesarios.</p>
+<p>La idea siempre es intentar escribir la menor cantidad de líneas de código posible. Esto en general se consigue si se utilizan expresiones regulares. Estas consisten en secuencias de caracteres que especifican patrones de búsqueda en un texto. Por ejemplo, si quiero buscar en un texto todas las coincidencias de 4 dígitos, en lugar de recurrir a condicionales como en la función de ejemplo, utilizaremos la expresión regular <code class="docutils literal notranslate"><span class="pre">\b\d{4}\b</span></code>, que se puede entender como:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\d</span></code>: cualquier dígito entre 0 y 9</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{4}</span></code>: cuantificador que nos indica coincidencias de 4 caracteres del mismo tipo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\b</span></code>: delimitador de palabra, que indica al programa que solamente busque cadenas de cuatro dígitos que estén rodeadas por caracteres que no sean dígitos (evita así que se seleccionen números de más de 4 dígitos)</p></li>
+</ul>
+<p>Haciendo uso de esta técnica (y de la librería <code class="docutils literal notranslate"><span class="pre">regex</span></code>), es posible reducir nuestra función a una línea:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">extraer_fechas</span><span class="p">(</span><span class="n">biografia</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    biografia (str) párrafo con una biografía de Wikipedia</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># usar el patrón regular para encontrar todas las fechas en la biografía</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b\d</span><span class="si">{4}</span><span class="s2">\b&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">biografia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Después de ver la reducción radical que tuvo nuestra función podríamos incluso dudar en usarla. Sin embargo, debido a que se puede utilizar muchas veces a lo largo de un programa, es más sencillo modificar una sola línea y que se afecte todo el programa.</p>
+<p>Las expresiones regulares son muy útiles, pero también representa cierta complejidad entender su lenguaje formal. Afortunadamente abundan las guías y manuales que abordan este tema.</p>
 </section>
 <section id="sintesis">
 <h2>Síntesis<a class="headerlink" href="#sintesis" title="Permalink to this headline">#</a></h2>

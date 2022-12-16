@@ -174,6 +174,33 @@ for b in bios:
 
 Vemos que en este caso, la función devuelve una lista de fechas, que luego podemos utilizar para realizar cualquier tipo de análisis.
 
+## Escribir código de manera sucinta
+
+Nuestra función `extraer_fechas()` funciona sin problemas. Sin embargo, esto no significa que esté bien escrita. Dicha función sufre de un mal que se denomina "verborrea" (en inglés lo encontrarás mucho como *verbose*), es decir, escribir con muchas más instrucciones, variables, valores, etc; de los necesarios.
+
+La idea siempre es intentar escribir la menor cantidad de líneas de código posible. Esto en general se consigue si se utilizan expresiones regulares. Estas consisten en secuencias de caracteres que especifican patrones de búsqueda en un texto. Por ejemplo, si quiero buscar en un texto todas las coincidencias de 4 dígitos, en lugar de recurrir a condicionales como en la función de ejemplo, utilizaremos la expresión regular `\b\d{4}\b`, que se puede entender como:
+
+- `\d`: cualquier dígito entre 0 y 9
+- `{4}`: cuantificador que nos indica coincidencias de 4 caracteres del mismo tipo.
+- `\b`: delimitador de palabra, que indica al programa que solamente busque cadenas de cuatro dígitos que estén rodeadas por caracteres que no sean dígitos (evita así que se seleccionen números de más de 4 dígitos)
+
+Haciendo uso de esta técnica (y de la librería `regex`), es posible reducir nuestra función a una línea:
+
+```{code-cell} ipython3
+import re
+
+def extraer_fechas(biografia):
+    '''
+    biografia (str) párrafo con una biografía de Wikipedia
+    '''
+    # usar el patrón regular para encontrar todas las fechas en la biografía
+    return re.compile(r"\b\d{4}\b").findall(biografia)
+```
+
+Después de ver la reducción radical que tuvo nuestra función podríamos incluso dudar en usarla. Sin embargo, debido a que se puede utilizar muchas veces a lo largo de un programa, es más sencillo modificar una sola línea y que se afecte todo el programa.
+
+Las expresiones regulares son muy útiles, pero también representa cierta complejidad entender su lenguaje formal. Afortunadamente abundan las guías y manuales que abordan este tema.
+
 ## Síntesis
 
 Hemos visto algunos de los aspectos básicos de las funciones en Python. En particular, hemos visto cómo definir una función, cómo pasarle argumentos y cómo devolver un valor. Puedes notar que en este lenguaje de programación, es bastante simple definir funciones y construir las propias.
