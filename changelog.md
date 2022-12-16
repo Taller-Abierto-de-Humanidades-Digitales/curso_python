@@ -19,6 +19,12 @@ Todos los cambios significativos a este cuaderno se documentan en este archivo.
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), y este proyecto se adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- Se aumentó la sección de [funciones](./caps/8-funciones.md) para incluir un ejemplo sobre cómo usar `regex`. La actividad de la sección 2 se actualizó para incluir el uso de `regex` en la función `extraer_fechas()`.
+
 ## [1.1.0] - 2021-12-07
 
 ### Fixed
