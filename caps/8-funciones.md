@@ -184,7 +184,7 @@ La idea siempre es intentar escribir la menor cantidad de líneas de código pos
 - `{4}`: cuantificador que nos indica coincidencias de 4 caracteres del mismo tipo.
 - `\b`: delimitador de palabra, que indica al programa que solamente busque cadenas de cuatro dígitos que estén rodeadas por caracteres que no sean dígitos (evita así que se seleccionen números de más de 4 dígitos)
 
-Haciendo uso de esta técnica (y de la librería `regex`), es posible reducir nuestra función a una línea:
+Haciendo uso de esta técnica (y de la librería [re](https://docs.python.org/3/library/re.html#module-re)), es posible reducir nuestra función a una línea:
 
 ```{code-cell} ipython3
 import re
